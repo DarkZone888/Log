@@ -319,20 +319,61 @@ local function AwakeFruit()
                             if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
                                 AwakeText = " โมตื่น"
                             else
-                                AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
+                                AwakeText = " โมไม่ตื่น"
                             end
                         else
                             if (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true) or (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true) then
-                                AwakeText = " โมไม่ตื่น"
+                                AwakeText = " ผลตื่น"
                             else
-                                AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
+                                AwakeText = " ผลไม่ตื่น"
                             end
                         end
                     else
-                        AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
+                        AwakeText = " ผลไม่ตื่น"
                     end
                 elseif game:GetService("Players").LocalPlayer.Data.DevilFruit.Value == '' then
                     AwakeText = "ไม่มีผล"
+                end
+            end
+        end
+        for i ,v in pairs(game:GetService("Workspace").Characters[game.Players.LocalPlayer.Name]:GetChildren()) do
+            if v:IsA("Tool") then
+                if v.ToolTip == "Blox Fruit" then
+                    if v:FindFirstChild("AwakenedMoves") then
+                        if v.AwakenedMoves:FindFirstChild("Z") then
+                            AwakeZ = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("X") then
+                            AwakeX = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("C") then
+                            AwakeC = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("V") then
+                            AwakeV = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("F") then
+                            AwakeF = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("TAP") then
+                            AwakeTAP = true
+                        end
+                        if v.Name == "Dough-Dough" then
+                            if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
+                                print("True")
+                            else
+                                print("False")
+                            end
+                        else
+                            if (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true) or (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true) then
+                                print("True")
+                            else
+                                print("False")
+                            end
+                        end
+                    else
+                        print("No")
+                    end
                 end
             end
         end
