@@ -9,7 +9,7 @@ getgenv().Settings = {
         Mirror_Fractal = true,
     },
     Delay_Settings = {
-        Enabled = false, -- true or false
+        Enabled = true, -- true or false
         CheckingDelay = 300,
     },
     AutoRejoin = true,
@@ -328,7 +328,7 @@ local function AwakeAlias()
                             end
                         end
                     else
-                        AwakeText = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
+                        AwakeText = string.split(""..game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                     end
                 elseif game:GetService("Players").LocalPlayer.Data.DevilFruit.Value == '' then
                     AwakeText = "ไม่มีผล"
@@ -371,7 +371,7 @@ local function AwakeAlias()
                             end
                         end
                     else
-                        AwakeText = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
+                        AwakeText = string.split(""..game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                     end
                 end
             end
