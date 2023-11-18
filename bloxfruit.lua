@@ -328,7 +328,7 @@ local function AwakeAlias()
                             end
                         end
                     else
-                        AwakeText = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-"
+                        AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2]
                     end
                 elseif game:GetService("Players").LocalPlayer.Data.DevilFruit.Value == '' then
                     AwakeText = "ไม่มีผล"
@@ -371,7 +371,7 @@ local function AwakeAlias()
                             end
                         end
                     else
-                        AwakeText = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-"
+                        AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2]
                     end
                 end
             end
