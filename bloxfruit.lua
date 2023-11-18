@@ -317,7 +317,7 @@ local function AwakeFruit()
                         end
                         if v.Name == "Dough-Dough" then
                             if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
-                                AwakeText = " โมจิตื่น"
+                                AwakeText = " โมตื่น"
                             else
                                 AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                             end
@@ -444,17 +444,7 @@ function CheckLevel()
     return RaceText
 end
 
-function Check()
-    RaceText = ''
-    if game:GetService("Players").LocalPlayer.Data.Level.Value < 2550 then
-        RaceText = 'Lv. '..game:GetService("Players").LocalPlayer.Data.Level.Value.." "
-    else
-        getgenv().SetAlias(GetGOD()..CheckMirrorFractalNew()..CheckVK()..CheckCDKNew()..CheckSGTNew())
-    end
-    return RaceText
-end
-
-local function CheckSGTNew()
+local function CheckSGTNew()a
     if getgenv().Settings.Show_Item_Settings["Soul_Guitar"] == true then
         SGT_Text = ''
         for i,v in pairs(game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventoryWeapons")) do -- เช็คในกระเป๋า
@@ -527,7 +517,7 @@ task.spawn(function()
     while true do
 		pcall(function()
             getgenv().SetDescription(CheckLevel()..GetNewAwake().." | "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]".." Melee : "..GetAllMeleeNew().." W : "..WorldText..' Fruits: '..GetFruitInU())
-			getgenv().SetAlias(Check())
+			getgenv().SetAlias(GetGOD()..AwakeFruit()..CheckCDKNew()..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]")
         end);
         if getgenv().Settings.Delay_Settings.Enabled == true then
             wait(getgenv().Settings.Delay_Settings.CheckingDelay)
