@@ -12,7 +12,7 @@ getgenv().Settings = {
         Enabled = false, -- true or false
         CheckingDelay = 10,
     },
-    AutoRejoin = true,
+    AutoRejoin = false,
 }
 
 repeat wait(.25) until game:IsLoaded() and game.Players.LocalPlayer.Character and game.Players.LocalPlayer:FindFirstChild("Backpack") and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Players.LocalPlayer:FindFirstChild("PlayerGui") and game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main") and pcall(function() return game.Players.LocalPlayer.Idled end)
@@ -42,22 +42,22 @@ repeat wait()
 until game.Players.LocalPlayer.Team ~= nil
 
 local function Connect()
-    print('[ Zeilos Service ] (Connect) : [1 / 5] ')
-    wait(0.9)
-    print('[ Zeilos Service ] (Connect) : [2 / 5] ')
-    wait(0.9)
-    print('[ Zeilos Service ] (Connect) : [3 / 5] ')
-    wait(0.9)
-    print('[ Zeilos Service ] (Connect) : [4 / 5] ')
-    wait(0.9)
-    print('[ Zeilos Service ] (Connect) : [5 / 5] ')
-    wait(0.9)
+    print('[ Exotic Log ] Connect : [1 / 5] ')
+    wait(0.5)
+    print('[ Exotic Log ] Connect : [2 / 5] ')
+    wait(0.5)
+    print('[ Exotic Log ] Connect : [3 / 5] ')
+    wait(0.5)
+    print('[ Exotic Log ] Connect : [4 / 5] ')
+    wait(0.5)
+    print('[ Exotic Log ] Connect : [5 / 5] ')
+    wait(0.5)
     Nexus_Version = 104
     loadstring(game:HttpGet"https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RBX%20Alt%20Manager/Nexus/Nexus.lua")()
     task.spawn(function()
         Nexus:Connect()
     end)
-    warn('[ Zeilos Service ] : Success executed script!')
+    warn('[ Exotic Log ] Executed Script!')
 end;
 
 Connect() -- Load script
@@ -224,7 +224,7 @@ local function GetNewAwake()
                         end
                         if v.Name == "Dough-Dough" then
                             if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
-                                AwakeText = "โมจิตื่น"
+                                AwakeText = "Awake "..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                             else
                                 AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                             end
@@ -319,54 +319,11 @@ local function AwakeFruit()
                             if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
                                 AwakeText = " โมจิตื่น"
                             else
-                                AwakeText = " โมจิไม่ตื่น"
-                            end
-                        else
-                            if (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true) or (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true) then
-                                AwakeText = " ผลตื่น"
-                            else
-                                AwakeText = " ผลไม่ตื่น"
-                            end
-                        end
-                    else
-                        AwakeText = "ผลไม่ตื่น"
-                    end
-                elseif game:GetService("Players").LocalPlayer.Data.DevilFruit.Value == '' then
-                    AwakeText = " ไม่มีผล"
-                end
-            end
-        end
-        for i ,v in pairs(game:GetService("Workspace").Characters[game.Players.LocalPlayer.Name]:GetChildren()) do
-            if v:IsA("Tool") then
-                if v.ToolTip == "Blox Fruit" then
-                    if v:FindFirstChild("AwakenedMoves") then
-                        if v.AwakenedMoves:FindFirstChild("Z") then
-                            AwakeZ = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("X") then
-                            AwakeX = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("C") then
-                            AwakeC = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("V") then
-                            AwakeV = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("F") then
-                            AwakeF = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("TAP") then
-                            AwakeTAP = true
-                        end
-                        if v.Name == "Dough-Dough" then
-                            if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
-                                AwakeText = "F "..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
-                            else
                                 AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                             end
                         else
                             if (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true) or (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true) then
-                                AwakeText = "F "..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
+                                AwakeText = " โมไม่ตื่น"
                             else
                                 AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                             end
@@ -374,6 +331,8 @@ local function AwakeFruit()
                     else
                         AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                     end
+                elseif game:GetService("Players").LocalPlayer.Data.DevilFruit.Value == '' then
+                    AwakeText = "ไม่มีผล"
                 end
             end
         end
@@ -480,7 +439,17 @@ function CheckLevel()
     if game:GetService("Players").LocalPlayer.Data.Level.Value < 2550 then
         RaceText = 'Lv. '..game:GetService("Players").LocalPlayer.Data.Level.Value.." "
     else
-        RaceText = 'Lv.2550 [ MAX ] '
+        RaceText = 'Lv.2550 [ MAX ]'
+    end
+    return RaceText
+end
+
+function Check()
+    RaceText = ''
+    if game:GetService("Players").LocalPlayer.Data.Level.Value < 2550 then
+        RaceText = 'Lv. '..game:GetService("Players").LocalPlayer.Data.Level.Value.." "
+    else
+        getgenv().SetAlias(GetGOD()..CheckMirrorFractalNew()..CheckVK()..CheckCDKNew()..CheckSGTNew())
     end
     return RaceText
 end
@@ -529,12 +498,12 @@ local function CheckVK()
         for i,v in pairs(game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventoryWeapons")) do -- เช็คในกระเป๋า
             for i1,v1 in pairs(v) do
                 if v1 == 'Valkyrie Helm' then
-                    VK_Text = ' | AM '
+                    VK_Text = ' | VH '
                 end
             end
         end
         if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('Valkyrie Helm') or game:GetService("Players").LocalPlayer.Character:FindFirstChild('Valkyrie Helm') then
-            VK_Text = ' | AM '
+            VK_Text = ' | VH '
         end
     else
         VK_Text = ''
@@ -558,7 +527,7 @@ task.spawn(function()
     while true do
 		pcall(function()
             getgenv().SetDescription(CheckLevel()..GetNewAwake().." | "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]".." Melee : "..GetAllMeleeNew().." W : "..WorldText..' Fruits: '..GetFruitInU())
-			getgenv().SetAlias(GetGOD()..CheckCDKNew()..AwakeFruit().." "..game:GetService("Players").LocalPlayer.Data.Race.Value.."["..CheckRaceV.."]"())
+			getgenv().SetAlias(Check())
         end);
         if getgenv().Settings.Delay_Settings.Enabled == true then
             wait(getgenv().Settings.Delay_Settings.CheckingDelay)
