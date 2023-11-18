@@ -10,7 +10,7 @@ getgenv().Settings = {
     },
     Delay_Settings = {
         Enabled = false, -- true or false
-        CheckingDelay = 10,
+        CheckingDelay = 600,
     },
     AutoRejoin = true,
 }
