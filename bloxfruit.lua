@@ -288,6 +288,101 @@ local function GetNewAwake()
     return AwakeText
 end
 
+
+
+local function AwakeFruit()
+    AwakeText = ''
+    pcall(function()
+        for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+            if v:IsA("Tool") then
+                if v.ToolTip == "Blox Fruit" then
+                    if v:FindFirstChild("AwakenedMoves") then
+                        if v.AwakenedMoves:FindFirstChild("Z") then
+                            AwakeZ = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("X") then
+                            AwakeX = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("C") then
+                            AwakeC = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("V") then
+                            AwakeV = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("F") then
+                            AwakeF = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("TAP") then
+                            AwakeTAP = true
+                        end
+                        if v.Name == "Dough-Dough" then
+                            if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
+                                AwakeText = "โมจิตื่น"
+                            else
+                                AwakeText = "โมจิไม่ตื่น"
+                            end
+                        else
+                            if (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true) or (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true) then
+                                AwakeText = "ผลตื่น"
+                            else
+                                AwakeText = "ผลไม่ตื่น"
+                            end
+                        end
+                    else
+                        AwakeText = "ผลไม่ตื่น"
+                    end
+                elseif game:GetService("Players").LocalPlayer.Data.DevilFruit.Value == '' then
+                    AwakeText = "Not Fruit"
+                end
+            end
+        end
+        for i ,v in pairs(game:GetService("Workspace").Characters[game.Players.LocalPlayer.Name]:GetChildren()) do
+            if v:IsA("Tool") then
+                if v.ToolTip == "Blox Fruit" then
+                    if v:FindFirstChild("AwakenedMoves") then
+                        if v.AwakenedMoves:FindFirstChild("Z") then
+                            AwakeZ = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("X") then
+                            AwakeX = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("C") then
+                            AwakeC = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("V") then
+                            AwakeV = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("F") then
+                            AwakeF = true
+                        end
+                        if v.AwakenedMoves:FindFirstChild("TAP") then
+                            AwakeTAP = true
+                        end
+                        if v.Name == "Dough-Dough" then
+                            if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
+                                AwakeText = "F "..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
+                            else
+                                AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
+                            end
+                        else
+                            if (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true) or (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true) then
+                                AwakeText = "F "..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
+                            else
+                                AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
+                            end
+                        end
+                    else
+                        AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
+                    end
+                end
+            end
+        end
+    end)
+    return AwakeText
+end
+
+
+
 function GetGOD()
     if getgenv().Settings.Show_Item_Settings["Godhuman"] == true then
         GodHuman = tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true))
@@ -420,7 +515,7 @@ local function CheckCDKNew()
             end
         end
         if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('Cursed Dual Katana') or game:GetService("Players").LocalPlayer.Character:FindFirstChild('Cursed Dual Katana') then
-            CDK_Text = ' | CDK'
+            CDK_Text = 'ดาบคู่'
         end
     else
         CDK_Text = ''
@@ -463,7 +558,7 @@ task.spawn(function()
     while true do
 		pcall(function()
             getgenv().SetDescription(CheckLevel()..GetNewAwake().." | "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]".." Melee : "..GetAllMeleeNew().." W : "..WorldText..' Fruits: '..GetFruitInU())
-			getgenv().SetAlias(GetGOD()..CheckCDKNew()..GetNewAwake())
+			getgenv().SetAlias(GetGOD()..CheckCDKNew()..AwakeFruit()..game:GetService("Players").LocalPlayer.Data.Race.Value..CheckRaceV())
         end);
         if getgenv().Settings.Delay_Settings.Enabled == true then
             wait(getgenv().Settings.Delay_Settings.CheckingDelay)
