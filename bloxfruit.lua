@@ -317,22 +317,22 @@ local function AwakeFruit()
                         end
                         if v.Name == "Dough-Dough" then
                             if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
-                                AwakeText = "โมจิตื่น"
+                                AwakeText = " โมจิตื่น"
                             else
-                                AwakeText = "โมจิไม่ตื่น"
+                                AwakeText = " โมจิไม่ตื่น"
                             end
                         else
                             if (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true) or (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true) then
-                                AwakeText = "ผลตื่น"
+                                AwakeText = " ผลตื่น"
                             else
-                                AwakeText = "ผลไม่ตื่น"
+                                AwakeText = " ผลไม่ตื่น"
                             end
                         end
                     else
                         AwakeText = "ผลไม่ตื่น"
                     end
                 elseif game:GetService("Players").LocalPlayer.Data.DevilFruit.Value == '' then
-                    AwakeText = "Not Fruit"
+                    AwakeText = " ไม่มีผล"
                 end
             end
         end
@@ -510,12 +510,12 @@ local function CheckCDKNew()
         for i,v in pairs(game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventoryWeapons")) do -- เช็คในกระเป๋า
             for i1,v1 in pairs(v) do
                 if v1 == 'Cursed Dual Katana' then
-                    CDK_Text = 'ดาบคู่'
+                    CDK_Text = ' ดาบคู่'
                 end
             end
         end
         if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('Cursed Dual Katana') or game:GetService("Players").LocalPlayer.Character:FindFirstChild('Cursed Dual Katana') then
-            CDK_Text = 'ดาบคู่'
+            CDK_Text = ' ดาบคู่'
         end
     else
         CDK_Text = ''
@@ -558,7 +558,7 @@ task.spawn(function()
     while true do
 		pcall(function()
             getgenv().SetDescription(CheckLevel()..GetNewAwake().." | "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]".." Melee : "..GetAllMeleeNew().." W : "..WorldText..' Fruits: '..GetFruitInU())
-			getgenv().SetAlias(GetGOD()..CheckCDKNew()..AwakeFruit()..game:GetService("Players").LocalPlayer.Data.Race.Value..CheckRaceV())
+			getgenv().SetAlias(GetGOD()..CheckCDKNew()..AwakeFruit()..game:GetService("Players").LocalPlayer.Data.Race.Value.." V"..CheckRaceV())
         end);
         if getgenv().Settings.Delay_Settings.Enabled == true then
             wait(getgenv().Settings.Delay_Settings.CheckingDelay)
