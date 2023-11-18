@@ -9,8 +9,8 @@ getgenv().Settings = {
         Mirror_Fractal = true,
     },
     Delay_Settings = {
-        Enabled = false, -- true or false
-        CheckingDelay = 600,
+        Enabled = true, -- true or false
+        CheckingDelay = 300,
     },
     AutoRejoin = true,
 }
@@ -42,22 +42,22 @@ repeat wait()
 until game.Players.LocalPlayer.Team ~= nil
 
 local function Connect()
-    print('[ Exotic Service ] (Connect) : [1 / 5] ')
-    wait(0.9)
-    print('[ Exotic Service ] (Connect) : [2 / 5] ')
-    wait(0.9)
-    print('[ Exotic Service ] (Connect) : [3 / 5] ')
-    wait(0.9)
-    print('[ Exotic Service ] (Connect) : [4 / 5] ')
-    wait(0.9)
-    print('[ Exotic Service ] (Connect) : [5 / 5] ')
-    wait(0.9)
+    print('[ Exotic Service ] Connect : [1 / 5] ')
+    wait(0.5)
+    print('[ Exotic Service ] Connect : [2 / 5] ')
+    wait(0.5)
+    print('[ Exotic Service ] Connect : [3 / 5] ')
+    wait(0.5)
+    print('[ Exotic Service ] Connect : [4 / 5] ')
+    wait(0.5)
+    print('[ Exotic Service ] Connect : [5 / 5] ')
+    wait(0.5)
     Nexus_Version = 104
     loadstring(game:HttpGet"https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RBX%20Alt%20Manager/Nexus/Nexus.lua")()
     task.spawn(function()
         Nexus:Connect()
     end)
-    warn('[ Exotic Service ] :  Executed!')
+    warn('[ Exotic Service ] :  Starting!')
 end;
 
 Connect() -- Load script
