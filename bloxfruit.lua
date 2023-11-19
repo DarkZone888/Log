@@ -345,13 +345,21 @@ end
 
 
 local function RaceReroll()
-    if  game:GetService("Players").LocalPlayer.Data.Race.Value = "Fishman" then
-        print("ok")
-    else
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","1")
-	    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","2")
+    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Wenlocktoad","1") == -2 then
+        if game.Players.LocalPlayer.Data.Race.Value == 'Fishman' then
+            print("ok")
+        else
+            Callback = function()
+                local args = {
+                    [1] = "BlackbeardReward",
+                    [2] = "Reroll",
+                    [3] = "2"
+                }
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+            end
+        end
     end
-end
+end    
 
 
 function CheckMirrorFractalNew()
