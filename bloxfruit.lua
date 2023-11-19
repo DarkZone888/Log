@@ -10,7 +10,7 @@ getgenv().Settings = {
     },
     Delay_Settings = {
         Enabled = true, -- true or false
-        CheckingDelay = 100,
+        CheckingDelay = 300,
     },
     AutoRejoin = true,
 }
@@ -42,22 +42,22 @@ repeat wait()
 until game.Players.LocalPlayer.Team ~= nil
 
 local function Connect()
-    print('[ Zeilos Service ] (Connect) : [1 / 5] ')
+    print('[ Exotic Log ] Check : [1 / 5] ')
     wait(0.9)
-    print('[ Zeilos Service ] (Connect) : [2 / 5] ')
+    print('[ Exotic Log ] Check : [2 / 5] ')
     wait(0.9)
-    print('[ Zeilos Service ] (Connect) : [3 / 5] ')
+    print('[ Exotic Log ] Check : [3 / 5] ')
     wait(0.9)
-    print('[ Zeilos Service ] (Connect) : [4 / 5] ')
+    print('[ Exotic Log ] Check : [4 / 5] ')
     wait(0.9)
-    print('[ Zeilos Service ] (Connect) : [5 / 5] ')
+    print('[ Exotic Log ] Check : [5 / 5] ')
     wait(0.9)
     Nexus_Version = 104
     loadstring(game:HttpGet"https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RBX%20Alt%20Manager/Nexus/Nexus.lua")()
     task.spawn(function()
         Nexus:Connect()
     end)
-    warn('[ Zeilos Service ] : Success executed script!')
+    warn('[ Exotic Log ] : Starting!')
 end;
 
 Connect() -- Load script
@@ -293,7 +293,7 @@ function GetGOD()
         GodHuman = tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true))
         if GodHuman then
             if GodHuman == 1 then
-                CombatText = 'GOD'
+                CombatText = '6หมัด'
             end
         end
     else
@@ -415,12 +415,12 @@ local function CheckCDKNew()
         for i,v in pairs(game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventoryWeapons")) do -- เช็คในกระเป๋า
             for i1,v1 in pairs(v) do
                 if v1 == 'Cursed Dual Katana' then
-                    CDK_Text = ' | CDK'
+                    CDK_Text = ' ดาบคู่'
                 end
             end
         end
         if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('Cursed Dual Katana') or game:GetService("Players").LocalPlayer.Character:FindFirstChild('Cursed Dual Katana') then
-            CDK_Text = ' | CDK'
+            CDK_Text = ' ดาบคู่'
         end
     else
         CDK_Text = ''
@@ -434,12 +434,12 @@ local function CheckVK()
         for i,v in pairs(game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventoryWeapons")) do -- เช็คในกระเป๋า
             for i1,v1 in pairs(v) do
                 if v1 == 'Valkyrie Helm' then
-                    VK_Text = ' | AM '
+                    VK_Text = ' | VH '
                 end
             end
         end
         if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('Valkyrie Helm') or game:GetService("Players").LocalPlayer.Character:FindFirstChild('Valkyrie Helm') then
-            VK_Text = ' | AM '
+            VK_Text = ' | VH '
         end
     else
         VK_Text = ''
@@ -463,7 +463,7 @@ task.spawn(function()
     while true do
 		pcall(function()
             getgenv().SetDescription(CheckLevel()..GetNewAwake().." | "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]".." Melee : "..GetAllMeleeNew().." W : "..WorldText..' Fruits: '..GetFruitInU())
-			getgenv().SetAlias(GetGOD()..CheckMirrorFractalNew()..CheckVK()..CheckCDKNew()..CheckSGTNew())
+			getgenv().SetAlias(GetGOD()..CheckCDKNew().." "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]")
         end);
         if getgenv().Settings.Delay_Settings.Enabled == true then
             wait(getgenv().Settings.Delay_Settings.CheckingDelay)
