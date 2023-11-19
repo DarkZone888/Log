@@ -10,7 +10,7 @@ getgenv().Settings = {
     },
     Delay_Settings = {
         Enabled = true, -- true or false
-        CheckingDelay = 60,
+        CheckingDelay = 300,
     },
     AutoRejoin = true,
 }
@@ -101,6 +101,7 @@ spawn(function()
             Nexus:CreateButton("World3btn", "World 3", {205, 40})
             Nexus:CreateButton("Rejoinbtn", "Rejoin", {100, 40})
             Nexus:CreateButton("Shutdownbtn", "Game Shutdown", {100, 40})
+            Nexus:CreateButton("Race", "Race Reroll", {100, 40})
         end)
         if x then break end
     end
@@ -428,6 +429,7 @@ local function CheckCDKNew()
     return CDK_Text
 end
 
+
 local function CheckVK()
     if getgenv().Settings.Show_Item_Settings["Valkyrie_Helm"] == true then
         VK_Text = ''
@@ -458,6 +460,8 @@ local function CheckRaceV()
 	end
 	return ReturnText
 end
+
+
 
 task.spawn(function()
     while true do
@@ -522,5 +526,11 @@ Nexus:OnButtonClick('Shutdownbtn', function()
     end)
 end)
 
+Nexus:OnButtonClick('Race', function() 
+    pcall(function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","1")
+	    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","2")
+    end)
+end)
 
 -- getgenv().SetDescription(GetNewAwake()..' | W : '..WorldText.." B : "..Abbreviate(game.Players.LocalPlayer.Data.Beli.Value)..' F : '..Abbreviate(game.Players.LocalPlayer.Data.Fragments.Value).." "..CheckHSNew()..CheckSGTNew()..CheckTushita()..CheckYama()..CheckDG()..CheckDarkFragment()..'\n FruitsInv: '..GetFruitInU())
