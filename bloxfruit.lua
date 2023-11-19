@@ -343,18 +343,6 @@ local function GetAllMeleeNew()
     return combat
 end
 
-
-local function RaceReroll()
-        if game.Players.LocalPlayer.Data.Race.Value == 'Fishman' then
-            print("ok")
-        else
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","1")
-	        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","2")
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,3)
-    end
-end    
-
-
 function CheckMirrorFractalNew()
     if getgenv().Settings.Show_Material_Settings["Mirror_Fractal"] == true then
         MirrorFac_Text = ''
@@ -476,7 +464,7 @@ task.spawn(function()
     while true do
 		pcall(function()
             getgenv().SetDescription(CheckLevel()..GetNewAwake().." | "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]".." Melee : "..GetAllMeleeNew().." W : "..WorldText..' Fruits: '..GetFruitInU())
-			getgenv().SetAlias(GetGOD()..CheckCDKNew().." "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]"..RaceReroll())
+			getgenv().SetAlias(GetGOD()..CheckCDKNew().." "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]")
         end);
         if getgenv().Settings.Delay_Settings.Enabled == true then
             wait(getgenv().Settings.Delay_Settings.CheckingDelay)
