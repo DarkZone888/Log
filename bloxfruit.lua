@@ -9,8 +9,8 @@ getgenv().Settings = {
         Mirror_Fractal = true,
     },
     Delay_Settings = {
-        Enabled = false, -- true or false
-        CheckingDelay = 10,
+        Enabled = true, -- true or false
+        CheckingDelay = 100,
     },
     AutoRejoin = true,
 }
@@ -382,10 +382,10 @@ end
 
 function CheckLevel()
     RaceText = ''
-    if game:GetService("Players").LocalPlayer.Data.Level.Value < 2450 then
+    if game:GetService("Players").LocalPlayer.Data.Level.Value < 2550 then
         RaceText = 'Lv. '..game:GetService("Players").LocalPlayer.Data.Level.Value.." "
     else
-        RaceText = 'Lv.2450 [ MAX ] '
+        RaceText = 'Lv.2550 [MAX] '
     end
     return RaceText
 end
