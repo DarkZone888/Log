@@ -385,9 +385,28 @@ function CheckLevel()
     if game:GetService("Players").LocalPlayer.Data.Level.Value < 2550 then
         RaceText = 'Lv. '..game:GetService("Players").LocalPlayer.Data.Level.Value.." "
     else
-        RaceText = 'Lv.2550 [MAX] '
+        RaceText = 'Lv.[MAX] '
     end
     return RaceText
+end
+
+local function CheckAnc()
+    if getgenv().Settings.Show_Item_Settings["Shark_Anchor"] == true then
+        ANC_Text = ''
+        for i,v in pairs(game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventoryWeapons")) do -- เช็คในกระเป๋า
+            for i1,v1 in pairs(v) do
+                if v1 == 'Shark Anchor' then
+                    ANC_Text = 'สมอ'
+                end
+                if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('Shark Anchor') or game:GetService("Players").LocalPlayer.Character:FindFirstChild('Shark Anchor') then
+                    ANC_Text = 'สมอ'
+                end
+            end
+        end
+    else
+        ANC_Text = ''
+    end
+    return ANC_Text
 end
 
 local function CheckSGTNew()
@@ -464,7 +483,7 @@ task.spawn(function()
     while true do
 		pcall(function()
             getgenv().SetDescription(CheckLevel()..GetNewAwake().." | "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]".." Melee : "..GetAllMeleeNew().." W : "..WorldText..' Fruits: '..GetFruitInU())
-			getgenv().SetAlias(GetGOD()..CheckCDKNew().." "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]")
+			getgenv().SetAlias(GetGOD()..CheckAnc()..CheckCDKNew().." "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]")
         end);
         if getgenv().Settings.Delay_Settings.Enabled == true then
             wait(getgenv().Settings.Delay_Settings.CheckingDelay)
