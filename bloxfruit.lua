@@ -4,6 +4,7 @@ getgenv().Settings = {
         Soul_Guitar = true,  -- true or false
 		Valkyrie_Helm = true,
         Cursed_Dual_Katana = true,
+        Shark_Anchor = true,
     },
     Show_Material_Settings = {
         Mirror_Fractal = true,
