@@ -291,71 +291,95 @@ end
 
 
 local function GetAlias()
-    AwakeText = ''
-    pcall(function()
-        for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-            if v:IsA("Tool") then
-                if v.ToolTip == "Blox Fruit" then
-                    if v:FindFirstChild("AwakenedMoves") then
-                        if v.AwakenedMoves:FindFirstChild("Z") then
-                            AwakeZ = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("X") then
-                            AwakeX = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("C") then
-                            AwakeC = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("V") then
-                            AwakeV = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("F") then
-                            AwakeF = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("TAP") then
-                            AwakeTAP = true
-                        end
-                        if v.Name == "Dough-Dough" then
-                            if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
-                                AliasText = " โมตื่น"
-                            else
-                                AliasText = " โมไม่ตื่น"
+        AwakeText = ''
+        pcall(function()
+            for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                if v:IsA("Tool") then
+                    if v.ToolTip == "Blox Fruit" then
+                        if v:FindFirstChild("AwakenedMoves") then
+                            if v.AwakenedMoves:FindFirstChild("Z") then
+                                AwakeZ = true
                             end
-                    end
-        end
-        for i ,v in pairs(game:GetService("Workspace").Characters[game.Players.LocalPlayer.Name]:GetChildren()) do
-            if v:IsA("Tool") then
-                if v.ToolTip == "Blox Fruit" then
-                    if v:FindFirstChild("AwakenedMoves") then
-                        if v.AwakenedMoves:FindFirstChild("Z") then
-                            AwakeZ = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("X") then
-                            AwakeX = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("C") then
-                            AwakeC = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("V") then
-                            AwakeV = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("F") then
-                            AwakeF = true
-                        end
-                        if v.AwakenedMoves:FindFirstChild("TAP") then
-                            AwakeTAP = true
-                        end
-                        if v.Name == "Dough-Dough" then
-                            AliasText = " โมตื่น"
+                            if v.AwakenedMoves:FindFirstChild("X") then
+                                AwakeX = true
+                            end
+                            if v.AwakenedMoves:FindFirstChild("C") then
+                                AwakeC = true
+                            end
+                            if v.AwakenedMoves:FindFirstChild("V") then
+                                AwakeV = true
+                            end
+                            if v.AwakenedMoves:FindFirstChild("F") then
+                                AwakeF = true
+                            end
+                            if v.AwakenedMoves:FindFirstChild("TAP") then
+                                AwakeTAP = true
+                            end
+                            if v.Name == "Dough-Dough" then
+                                if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
+                                    AwakeText = "โมตื่น"
+                                else
+                                    AwakeText = "โมไม่ตื่น"
+                                end
+                            else
+                                if (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true) or (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true) then
+                                    AwakeText = ""
+                                else
+                                    AwakeText = ""
+                                end
+                            end
                         else
-                            AliasText = " โมไม่ตื่น"
-                    end  
+                            AwakeText = ""
+                        end
+                    elseif game:GetService("Players").LocalPlayer.Data.DevilFruit.Value == '' then
+                        AwakeText = ""
+                    end
                 end
             end
-        end
-    end)
-    return AliasText
-end
+            for i ,v in pairs(game:GetService("Workspace").Characters[game.Players.LocalPlayer.Name]:GetChildren()) do
+                if v:IsA("Tool") then
+                    if v.ToolTip == "Blox Fruit" then
+                        if v:FindFirstChild("AwakenedMoves") then
+                            if v.AwakenedMoves:FindFirstChild("Z") then
+                                AwakeZ = true
+                            end
+                            if v.AwakenedMoves:FindFirstChild("X") then
+                                AwakeX = true
+                            end
+                            if v.AwakenedMoves:FindFirstChild("C") then
+                                AwakeC = true
+                            end
+                            if v.AwakenedMoves:FindFirstChild("V") then
+                                AwakeV = true
+                            end
+                            if v.AwakenedMoves:FindFirstChild("F") then
+                                AwakeF = true
+                            end
+                            if v.AwakenedMoves:FindFirstChild("TAP") then
+                                AwakeTAP = true
+                            end
+                            if v.Name == "Dough-Dough" then
+                                if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
+                                    AwakeText = "โมตื่น"
+                                else
+                                    AwakeText = "โมไม่ตื่น"
+                                end
+                            else
+                                if (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true) or (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true) then
+                                    AwakeText = ""
+                                else
+                                    AwakeText = ""
+                                end
+                            end
+                        else
+                            AwakeText = ""
+                        end
+                    end
+                end
+            end
+        end)
+        return AwakeText
+    end
 
 
 function GetGOD()
