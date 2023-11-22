@@ -483,7 +483,7 @@ end
 task.spawn(function()
     while true do
 		pcall(function()
-            getgenv().SetDescription(CheckLevel()..GetNewAwake()..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]".." Melee:"..GetAllMeleeNew().."\n".."W:"..WorldText.."B:"..Abbreviate(game.Players.LocalPlayer.Data.Beli.Value)..'F:'..Abbreviate(game.Players.LocalPlayer.Data.Fragments.Value)..'\nFruits:'..GetFruitInU())
+            getgenv().SetDescription(CheckLevel()..GetNewAwake()..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]".." Melee:"..GetAllMeleeNew().."\n".."W:"..WorldText.."".."B:"..Abbreviate(game.Players.LocalPlayer.Data.Beli.Value)..""..'F:'..Abbreviate(game.Players.LocalPlayer.Data.Fragments.Value)..""..'\nFruits:'..GetFruitInU())
 			getgenv().SetAlias(GetGOD()..CheckAnc()..CheckCDKNew().." "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]")
         end);
         if getgenv().Settings.Delay_Settings.Enabled == true then
