@@ -225,13 +225,13 @@ local function GetNewAwake()
                         end
                         if v.Name == "Dough-Dough" then
                             if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
-                                AwakeText = "Awake "..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
+                                AwakeText = "F."..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                             else
                                 AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                             end
                         else
                             if (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true) or (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true) then
-                                AwakeText = "Awake "..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
+                                AwakeText = "F."..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                             else
                                 AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                             end
@@ -268,13 +268,13 @@ local function GetNewAwake()
                         end
                         if v.Name == "Dough-Dough" then
                             if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
-                                AwakeText = "F "..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
+                                AwakeText = "F."..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                             else
                                 AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                             end
                         else
                             if (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true) or (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true) then
-                                AwakeText = "F "..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
+                                AwakeText = "F."..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                             else
                                 AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"
                             end
@@ -397,10 +397,10 @@ local function CheckAnc()
         for i,v in pairs(game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventoryWeapons")) do -- เช็คในกระเป๋า
             for i1,v1 in pairs(v) do
                 if v1 == 'Shark Anchor' then
-                    ANC_Text = 'สมอ'
+                    ANC_Text = ' สมอ'
                 end
                 if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('Shark Anchor') or game:GetService("Players").LocalPlayer.Character:FindFirstChild('Shark Anchor') then
-                    ANC_Text = 'สมอ'
+                    ANC_Text = ' สมอ'
                 end
             end
         end
@@ -483,7 +483,7 @@ end
 task.spawn(function()
     while true do
 		pcall(function()
-            getgenv().SetDescription(CheckLevel()..GetNewAwake().." | "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]".." Melee : "..GetAllMeleeNew().." W : "..WorldText..' Fruits: '..GetFruitInU())
+            getgenv().SetDescription(GetNewAwake()..'W:'..WorldText.."B:"..Abbreviate(game.Players.LocalPlayer.Data.Beli.Value)..'F:'..Abbreviate(game.Players.LocalPlayer.Data.Fragments.Value).."\n"..CheckHSNew()..CheckSGTNew()..CheckTushita()..CheckYama()..CheckDG()..CheckDarkFragment()..'\n FruitsInv: '..GetFruitInU())
 			getgenv().SetAlias(GetGOD()..CheckAnc()..CheckCDKNew().." "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]")
         end);
         if getgenv().Settings.Delay_Settings.Enabled == true then
@@ -545,3 +545,4 @@ end)
 
 
 -- getgenv().SetDescription(GetNewAwake()..' | W : '..WorldText.." B : "..Abbreviate(game.Players.LocalPlayer.Data.Beli.Value)..' F : '..Abbreviate(game.Players.LocalPlayer.Data.Fragments.Value).." "..CheckHSNew()..CheckSGTNew()..CheckTushita()..CheckYama()..CheckDG()..CheckDarkFragment()..'\n FruitsInv: '..GetFruitInU())
+-- getgenv().SetDescription(CheckLevel()..GetNewAwake().." | "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]".." Melee : "..GetAllMeleeNew().." W : "..WorldText..' Fruits: '..GetFruitInU())
