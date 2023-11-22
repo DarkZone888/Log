@@ -317,15 +317,15 @@ local function GetAlias()
                             end
                             if v.Name == "Dough-Dough" then
                                 if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
-                                    AwakeText = "โมตื่น"
+                                    AwakeText = " โมตื่น"
                                 else
-                                    AwakeText = "โมไม่ตื่น"
+                                    AwakeText = " โมไม่ตื่น"
                                 end
                             else
                                 if (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true) or (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true) then
-                                    AwakeText = ""
+                                    print("awake")
                                 else
-                                    AwakeText = ""
+                                    print("noawake")
                                 end
                             end
                         else
@@ -360,15 +360,15 @@ local function GetAlias()
                             end
                             if v.Name == "Dough-Dough" then
                                 if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then
-                                    AwakeText = "โมตื่น"
+                                    AwakeText = " โมตื่น"
                                 else
-                                    AwakeText = "โมไม่ตื่น"
+                                    AwakeText = " โมไม่ตื่น"
                                 end
                             else
                                 if (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true) or (AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true) then
-                                    AwakeText = ""
+                                    print("awake")
                                 else
-                                    AwakeText = ""
+                                    print("noawake")
                                 end
                             end
                         else
