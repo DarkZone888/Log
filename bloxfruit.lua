@@ -3,8 +3,8 @@ getgenv().Settings = {
         Godhuman = true,  -- true or false					
         Soul_Guitar = false,  -- true or false					
 		Valkyrie_Helm = true,			
-        Cursed_Dual_Katana = true,
-		Shark_Anchor = true,
+        Cursed_Dual_Katana = true,	
+        Shark_Anchor = true,				
     },					
     Show_Material_Settings = {					
         Mirror_Fractal = true,					
@@ -434,7 +434,7 @@ local function CheckCDKNew()
 end
 
 
-local function CheckAnc()
+local function CheckAnchor()
     if getgenv().Settings.Show_Item_Settings["Shark_Anchor"] == true then
         ANC_Text = ''
         for i,v in pairs(game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventoryWeapons")) do -- เช็คในกระเป๋า
@@ -496,7 +496,7 @@ task.spawn(function()
          " | Fruits : "..GetFruitInU()..					
          " | "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]")					
         --getgenv().SetDescription(GetNewAwake()..' | W : '..WorldText.." B : "..Abbreviate(game.Players.LocalPlayer.Data.Beli.Value)..' F : '..Abbreviate(game.Players.LocalPlayer.Data.Fragments.Value).." "..CheckHSNew()..CheckSGTNew()..CheckTushita()..CheckYama()..CheckDG()..CheckDarkFragment()..'\n FruitsInv: '..GetFruitInU())					
-         getgenv().SetAlias(CheckLevel()..GetAllMeleeNew()..CheckAnc()..CheckCDKNew()..CheckMirrorFractalNew()..CheckVK()..CheckSGTNew())					
+         getgenv().SetAlias(CheckLevel()..GetAllMeleeNew()..CheckAnchor()..CheckCDKNew()..CheckMirrorFractalNew()..CheckVK()..CheckSGTNew())					
         end);					
         if getgenv().Settings.Delay_Settings.Enabled == true then					
             wait(getgenv().Settings.Delay_Settings.CheckingDelay)					
