@@ -3,15 +3,14 @@ getgenv().Settings = {
         Godhuman = true,  -- true or false					
         Soul_Guitar = false,  -- true or false					
 		Valkyrie_Helm = true,			
-        Cursed_Dual_Katana = true,	
-        Shark_Anchor = true,				
+        Cursed_Dual_Katana = true,					
     },					
     Show_Material_Settings = {					
         Mirror_Fractal = true,					
     },					
     Delay_Settings = {					
         Enabled = false, -- true or false					
-        CheckingDelay = 300,					
+        CheckingDelay = 10,					
     },					
     AutoRejoin = true,					
 }					
@@ -225,7 +224,7 @@ local function GetNewAwake()
                         end					
                         if v.Name == "Dough-Dough" then					
                             if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then					
-                                AwakeText = "F."..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"					
+                                AwakeText = "Full"..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"					
                             else					
                                 AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"					
                             end					
@@ -431,28 +430,7 @@ local function CheckCDKNew()
         CDK_Text = ''					
     end					
     return CDK_Text					
-end
-
-
-local function CheckAnchor()
-    if getgenv().Settings.Show_Item_Settings["Shark_Anchor"] == true then
-        ANC_Text = ''
-        for i,v in pairs(game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventoryWeapons")) do -- เช็คในกระเป๋า
-            for i1,v1 in pairs(v) do
-                if v1 == 'Shark Anchor' then
-                    ANC_Text = '+ANC'
-                end
-                if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('Shark Anchor') or game:GetService("Players").LocalPlayer.Character:FindFirstChild('Shark Anchor') then
-                    ANC_Text = '+ANC'
-                end
-            end
-        end
-    else
-        ANC_Text = ''
-    end
-    return ANC_Text
-end
-
+end					
 					
 local function CheckVK()					
     if getgenv().Settings.Show_Item_Settings["Valkyrie_Helm"] == true then					
@@ -496,7 +474,7 @@ task.spawn(function()
          " | Fruits : "..GetFruitInU()..					
          " | "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]")					
         --getgenv().SetDescription(GetNewAwake()..' | W : '..WorldText.." B : "..Abbreviate(game.Players.LocalPlayer.Data.Beli.Value)..' F : '..Abbreviate(game.Players.LocalPlayer.Data.Fragments.Value).." "..CheckHSNew()..CheckSGTNew()..CheckTushita()..CheckYama()..CheckDG()..CheckDarkFragment()..'\n FruitsInv: '..GetFruitInU())					
-         getgenv().SetAlias(CheckLevel()..GetAllMeleeNew()..CheckAnchor()..CheckCDKNew()..CheckMirrorFractalNew()..CheckVK()..CheckSGTNew())					
+         getgenv().SetAlias(CheckLevel()..GetAllMeleeNew()..CheckMirrorFractalNew()..CheckVK()..CheckCDKNew()..CheckSGTNew())					
         end);					
         if getgenv().Settings.Delay_Settings.Enabled == true then					
             wait(getgenv().Settings.Delay_Settings.CheckingDelay)					
