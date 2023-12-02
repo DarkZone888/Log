@@ -9,8 +9,8 @@ getgenv().Settings = {
         Mirror_Fractal = true,					
     },					
     Delay_Settings = {					
-        Enabled = true, -- true or false					
-        CheckingDelay = 60,					
+        Enabled = false, -- true or false					
+        CheckingDelay = 10,					
     },					
     AutoRejoin = true,					
 }					
@@ -224,7 +224,7 @@ local function GetNewAwake()
                         end					
                         if v.Name == "Dough-Dough" then					
                             if AwakeZ == true and AwakeX == true and AwakeC == true and AwakeV == true and AwakeF == true and AwakeTAP == true then					
-                                AwakeText = "Fu"..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"					
+                                AwakeText = "Full"..string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"					
                             else					
                                 AwakeText = string.split(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value,"-")[2].." ["..game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value.."]"					
                             end					
@@ -474,7 +474,7 @@ task.spawn(function()
          " | Fruits : "..GetFruitInU()..					
          " | "..game:GetService("Players").LocalPlayer.Data.Race.Value.." ["..CheckRaceV().."]")					
         --getgenv().SetDescription(GetNewAwake()..' | W : '..WorldText.." B : "..Abbreviate(game.Players.LocalPlayer.Data.Beli.Value)..' F : '..Abbreviate(game.Players.LocalPlayer.Data.Fragments.Value).." "..CheckHSNew()..CheckSGTNew()..CheckTushita()..CheckYama()..CheckDG()..CheckDarkFragment()..'\n FruitsInv: '..GetFruitInU())					
-         getgenv().SetAlias(CheckLevel()..GetAllMeleeNew()..CheckMirrorFractalNew()..CheckVK()..CheckCDKNew()..CheckSGTNew())					
+         getgenv().SetAlias(CheckLevel()..GetAllMeleeNew()..CheckCDKNew()..CheckMirrorFractalNew()..CheckVK())					
         end);					
         if getgenv().Settings.Delay_Settings.Enabled == true then					
             wait(getgenv().Settings.Delay_Settings.CheckingDelay)					
